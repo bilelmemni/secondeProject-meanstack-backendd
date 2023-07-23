@@ -19,7 +19,7 @@ app.use(require('express-session')({ secret: 'Secret', resave: true, saveUniniti
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', async (req, res) => {
+app.get('/', async (req, res) => { 
  res.json({ message: 'REST API' });
 });
 
