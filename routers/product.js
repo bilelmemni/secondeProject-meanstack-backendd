@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 const passport = require('passport')
-const{addproduit,getallproduit,getByIdproduit,deleteproduit,updateproduit}=require('../controllers/pruduct')
+const{addproduit,getallproduit,getByIdproduit,deleteproduit,updateproduit, getallcategories, getProductsbycategory}=require('../controllers/pruduct')
 
 
 //uploads file
@@ -21,6 +21,7 @@ const upload=multer({storage:mystorage})
 //CRUD PRODUIT
 router.post('/produit',upload.any('image'),addproduit)
 router.get('/produit',getallproduit)
+router.get('/getProductsbycategory/:id',getProductsbycategory)
 router.get('/produit/:id',getByIdproduit)
 router.delete('/produit/:id',deleteproduit)
 router.put('/produit/:id',upload.any('image'),updateproduit)

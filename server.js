@@ -25,7 +25,22 @@ app.get('/', async (req, res) => {
 
 app.use('/api', require('./routers/product'));
 app.use('/api', require('./routers/auth'));
+app.use('/api', require('./routers/commande'));
 app.use('/image',express.static('./uploads'));
+// ajouter au panier
+let cartItems = [];
+
+app.get('/api/cart', (req, res) => {
+  res.json(cartItems);
+});
+
+
+app.post('/api/cart', (req, res) => {
+  const product = req.body;
+  cartItems.push(product);
+  res.json({ message: 'Product added to cart successfully' });
+});
+//
 
 
 

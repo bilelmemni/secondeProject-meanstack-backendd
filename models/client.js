@@ -9,6 +9,10 @@ const ClientSchema = new Schema({
         type: String,
         required: [true, 'Ce champs est obligatoire'],
     },
+    image: {
+        type: String,
+        required: [true, 'Ce champs est obligatoire'],
+    },
     email: {
         type: String,
         unique:true,

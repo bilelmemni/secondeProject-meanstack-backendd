@@ -29,6 +29,16 @@ exports.getallproduit=async(req,res)=>{
       }
   )
 }
+exports.getProductsbycategory=async(req,res)=>{
+  try {
+      myid=req.params.id;
+      art=await Produit.find({categorie:myid})
+      res.status(200).send(art)
+  } catch (error) {
+      res.status(400).send(error)
+  }
+
+}
 exports.getByIdproduit=async(req,res)=>{
   myid=req.params.id
   Produit.findOne({_id:myid})

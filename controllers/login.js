@@ -1,4 +1,4 @@
-const Admin=require('../models/auth');
+const Admin=require('../models/client');
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 require('dotenv').config();
@@ -15,7 +15,7 @@ exports.login=async(req,res)=>{
     
               
                 const data = {
-                  idClient: admin._id
+                  _id: admin._id
               }
               const token = jwt.sign(data, 'Secret', { expiresIn: '1d' })
     
@@ -34,3 +34,4 @@ exports.login=async(req,res)=>{
             res.status(400).send(error)
         }
     }
+    
